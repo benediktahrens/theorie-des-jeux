@@ -1,0 +1,203 @@
+\documentclass[french,11pt,leqno]{article}
+
+\usepackage{amsmath,amssymb,babel,a4wide,theorem}
+\usepackage{enumerate}
+%\usepackage[latin1]{inputenc}
+\usepackage[charter]{mathdesign} 
+
+
+%\pagestyle{empty}
+
+\textheight 24 true cm
+\textwidth 16.5 true cm
+\topmargin -1cm
+\oddsidemargin -3 truemm
+\evensidemargin 3 truemm
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\Rn}{\mathbb{R}^n}
+
+\newcommand{\dsp}{\displaystyle}
+
+\newcounter{exocount}
+\setcounter{exocount}{1}
+\newcounter{questcount}
+
+\def\exo{\bigskip\noindent{\bf Exercice \theexocount {} -}
+  \addtocounter{exocount}{1} \setcounter{questcount}{1}} 
+
+\def\q{\smallskip\noindent{\bf \number\thequestcount -}
+  \addtocounter{questcount}{1}}
+
+\def\indic{\smallskip\noindent\textit{Indication.} }
+
+\begin{document}
+
+\begin{center}
+{\bf Universit\'e de Nice-Sophia Antipolis}
+\end{center}
+\bigskip
+
+\flushright
+
+\noindent{\bf ANN\'EE UNIVERSITAIRE~:} 2011-12
+
+\noindent{\bf ANN\'EE D'\'ETUDE~:} L1 MASS 
+
+\noindent{\bf MATI\`ERE~:} THEORIE DES JEUX 
+
+\flushleft
+
+\vskip1cm
+
+\noindent {\bf NOM:} \hspace{5cm} {\bf PR\'ENOM:} \hspace{4cm} {\bf NOMBRE FEUILLES:}
+
+
+\vskip1cm
+
+\begin{center}
+{\bf  INTERROGATION DE TD 1}
+
+{\bf 24 f\'evrier 2012 }
+\end{center}
+
+\medskip
+
+{\bf \noindent Tous les documents et les calculatrices sont interdits.} 
+
+\smallskip
+
+{\bf \noindent Il vous est toujours demand\'e de justifier avec soin vos r\'eponses.} 
+
+\medskip
+
+
+
+\exo
+On consid\`ere les formes normales suivantes avec $p\in \R$.
+\begin{equation*}
+\begin{array}{l|rrrr}
+\mathbf{A} & y_1 & y_2 & y_3 & y_4 \\ \hline
+x_1& 3&-1& 4 & 2\\
+x_2&-1& 0 &3&4\\
+x_3&2&-15&0&3\\
+x_4&-1&2&3&7
+\end{array}
+% 
+\qquad
+%
+\begin{array}{l|rrrr}
+\mathbf{B}   & y_1 & y_2 & y_3 & y_4\\ \hline
+x_1 &  3 & 9 & -13 & -3 \\
+x_2 &  6 & 10 & -6 & -6 \\
+x_3 &  6 & -3 & 6 & -3 \\
+x_4 &  3 & -3 & -3 & 3 \\ 
+\end{array}
+%
+\qquad
+%
+\begin{array}{l|rrr}
+\mathbf{C}& y_1&y_2&y_3 \\ \hline
+x_1& 1&1&p\\
+x_2& -1&1&\sqrt{10}\\
+x_3&\sqrt{8}&1& 1
+\end{array}
+\end{equation*}
+
+\begin{enumerate}[a)]%\setlength{\itemsep}{-1ex}
+\item D\'eterminer les strat\'egies domin\'ees des deux joueurs $X$ et $Y$ de $A$. Donner le jeu r\'eduit de $A$, qu'on appellera $A'$. 
+      % A' il restent  x_1, x_3, y_1, y_2
+\item Le jeu $A'$ poss\`ede--t--il des points selles ? 
+           % y en a pas
+\item Donner les strat\'egies prudentes de $A'$ pour chacun des joueurs.
+\item Comment pourrait--on modifier la fonction de paiement de $A'$ pour obtenir un jeu \`a valeur en strat\'egie pure ? On modifiera
+        une seule valeur de la fonction de paiement.
+\item D\'eterminer les points selles de $B$. En d\'eduire les strat\'egies optimales de chacun des joueurs.
+\item Selon la valeur de $p$, d\'eterminer les strat\'egies dominantes des deux joueurs $X$ et $Y$ de $C$.
+        % b \leq 1  alors il restent que x_3, y_1    
+        % b \geq 1   pas fait
+\item D\'eterminer, pour quelle valeur de $p$, le jeu $C$ est \`a valeur en strat\'egie pure. Vous donnerez alors les points selles selon les valeurs de $p$.
+        %   minmax = max(b,1)   =?=    min(b,1) =  maxmin 
+        %   pour b = 1 !!!
+\end{enumerate}
+
+
+
+\exo 
+On consid\`ere la forme normale $u_t$ suivante, pour $t$ un r\'eel :
+\begin{equation*}
+% \begin{pmatrix}
+% \begin{array}{l|rr}
+%     & y_1 & y_2  \\ \hline
+% x_1 & t+1&1\\
+% x_2 & 0&2t\\
+% x_3 & -2&-1
+% \end{array}
+%
+\begin{array}{l|rrr}
+    & y_1 & y_2 & y_3  \\ \hline
+x_1 & t-1&0 & 1\\
+x_2 & 1&3t & 2\\
+
+\end{array}
+%
+%
+% \end{pmatrix}
+\end{equation*}
+
+\begin{enumerate}[a)]%\setlength{\itemsep}{-2ex}
+\item Dessiner le graphe de la fonction $t \mapsto \inf_{y \in Y} \sup_{x \in X} u_t(x,y)$. On expliquera les diff\'erentes \'etapes effectu\'ees. \label{question:1}
+\item Dessiner sur un autre graphe, la fonction $t \mapsto \sup_{x \in X} \inf_{y \in Y} u_t(x,y)$. \label{question:2}
+\item D\'eduire des graphes des questions pr\'ec\'edentes les strat\'egies prudentes de X et Y en fonction de t. 
+     On expliquera comment elles sont d\'etermin\'ees.
+\item Dessiner sur un troisi\`eme graphe, les fonctions \[t \mapsto \inf_{y \in Y} \sup_{x \in X} u_t(x,y)\] et \[t \mapsto \sup_{x \in X} \inf_{y \in Y} u_t(x,y)\]
+ obtenues lors des questions \ref{question:1} et \ref{question:2}. 
+\item Pour quelles valeurs de $t$, le jeu a-t-il une valeur en strat\'egie pure et quelle est-elle ? On expliquera comment ces valeurs sont d\'etermin\'ees.
+\item Selon les valeurs de $t$, d\'eterminer les strat\'egies dominantes pour $X$. On donnera les arguments utilis\'es.
+% \item Selon les valeurs de $t$, d\'eterminer les strat\'egies dominantes pour $Y$. On donnera les arguments utilis\'es.
+% TODO
+
+
+\end{enumerate}
+
+
+
+\exo
+H\'el\`ene et Jimi jouent ensemble. Ils disposent chacun de trois cartes de couleurs diff\'erentes : rouge, bleu, jaune. 
+Ils choisissent simultan\'ement une carte et la montrent. 
+La carte rouge gagne sur la bleue qui gagne sur la jaune qui elle-m\^eme remporte sur la rouge. 
+Si une carte rouge l'emporte, le joueur perdant donne 2 euros au gagnant. 
+Pour les deux autres couleurs, le perdant donne 3 euros au gagnant. Si deux m\^emes couleurs sortent, on a \'egalit\'e.
+\begin{enumerate}[a)]%\setlength{\itemsep}{0ex}
+\item Donner la forme normale de ce jeu. Les diff\'erentes strat\'egies seront clairement explicit\'ees.
+\item Ce jeu admet-il une valeur en strat\'egie pure ? Si oui, laquelle?
+\item Ce jeu est--il \`a somme nulle ? Expliquer. Proposer une alternative pour avoir un jeu \`a somme non nulle.
+\item Une autre version de ce jeu est propos\'ee. H\'el\`ene et Jimi doivent choisir deux cartes et les mettre dans deux pots distincts. 
+     Dans le premier, ils doivent mettre celui dont la couleur est la premi\`ere dans l'ordre alphab\'etique et dans le second, l'autre carte. 
+   Par exemple, si H\'el\`ene choisit la bleue et la jaune, bleu est le premier mot dans l'ordre alphab\'etique donc elle est plac\'e dans le premier pot et la 
+  carte jaune dans le second pot. 
+   Les gains de chacun des pots sont les m\^emes que pr\'ec\'edemment mais sont additionn\'es pour conna\^itre le gain de chacun \`a chaque partie. 
+  Donner la forme de ce jeu en explicitant les diff\'erentes strat\'egies. Ce jeu admet--il une valeur en strat\'egie pure? Si oui, laquelle?
+\end{enumerate}
+
+
+\exo
+Soit $J=(X,Y,u)$ un jeu \`a somme nulle. 
+ \begin{enumerate}[a)]
+  \item Quand le jeu $J$ admet--il une valeur en strat\'egie pure ? (Donner la d\'efinition du cours.)
+  \item 
+Donner la d\'efinition d'un point selle de $J$ donn\'ee en cours.
+  \item Donner deux propri\'et\'es des points selles de $J$ discut\'ees en cours.
+\end{enumerate}
+\medskip
+\medskip
+
+
+
+
+\end{document}

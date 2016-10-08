@@ -1,0 +1,211 @@
+\documentclass[11pt]{scrartcl}
+%\documentclass[10pt,a4paper]{book}
+% \usepackage[latin1]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{hyperref}
+\usepackage{lmodern}
+% \usepackage{epsf}
+\usepackage{amsmath}
+\usepackage{amsthm}
+% \usepackage{epsfig}
+\usepackage{amssymb}
+% \usepackage{epic}
+% \usepackage{stmaryrd}
+\usepackage{graphicx}
+% \pagenumbering{arabic}
+
+\usepackage{verbatim}
+% \usepackage{bm}
+\usepackage[T1]{fontenc}
+% \usepackage{geometry}
+\usepackage{multirow}
+
+\usepackage{tikz}
+% \usetikzlibrary{intersections}
+
+\usepackage{hyperref}
+
+
+\title{Th\'eorie des jeux : Cours 3 \\ {\large Strat\'egies mixtes}}
+\author{\url{http://math.unice.fr/~ahrens}}
+\date{}
+
+
+
+\newtheoremstyle{mydefinition}
+ {\topsep} % Platz vor dem Theorem
+ {\topsep} % Platz nach dem Theorem
+ {} % Schrift im Theorem
+ {} % Einrueckung (empty = keine Einrueckung, \parindent = Normale Paragrapheneinrueckung)
+ {} % Schrift in der Kopfzeile des Theorems
+ {} % Punktation nach dem Theoremkopf
+ {10pt} %     Space after thm head (\newline = linebreak)
+ {{\bfseries\thmnumber{#2 }\thmname{#1}}{\thmnote{ (#3)}}:} % Kopfformatierung
+
+\theoremstyle{mydefinition}
+\newtheorem{definition}{D\'efinition}
+\newtheorem{exo}[definition]{Exercice}
+\newtheorem{example}[definition]{Exemple}
+\newtheorem{rem}[definition]{Remarque}
+
+\newtheoremstyle{myplain}
+ {\topsep} % Platz vor dem Theorem
+ {\topsep} % Platz nach dem Theorem
+ {\itshape} % Schrift im Theorem
+ {} % Einrueckung (empty = keine Einrueckung, \parindent = Normale Paragrapheneinrueckung)
+ {} % Schrift in der Kopfzeile des Theorems
+ {} % Punktation nach dem Theoremkopf
+ {10pt} %     Space after thm head (\newline = linebreak)
+ {{\bfseries\thmnumber{#2 }\thmname{#1}}\thmnote{ (#3)}:} % Kopfformatierung
+\theoremstyle{myplain}
+\newtheorem{thm}[definition]{Th\'eor\`eme}
+
+
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+
+\DeclareMathOperator{\Maxmin}{Maxmin}
+\DeclareMathOperator{\Minmax}{Minmax}
+\DeclareMathOperator{\val}{val}
+
+\begin{document}
+
+\maketitle
+
+
+On a vu que les jeux qui admettent une valeur en strat\'egie pure ne sont pas int\'eressants.
+
+Consid\'erons le jeu $(X,Y,u)$ donn\'e par sa forme normale
+\[
+\begin{array}{l|rr}
+    & y_1 & y_2  \\ \hline
+x_1 &  1 & -1  \\
+x_2 &   -1 & 2
+\end{array} 
+\]
+ 
+Ce jeu n'admet pas de valeur en strat\'egie pure (le d\'emontrer en exo), il n'y a donc pas de strat\'egies optimales.
+
+\begin{definition}[Strat\'egie mixte]
+   Une \emph{strat\'egie mixte} pour le joueur $X$ est une variable al\'eatoire dont les valeurs 
+sont les strat\'egies $X=\{x_1,\ldots,x_n\}$ de $X$ (ici: $x_1$ et $x_2$).
+   Au lieu de choisir \emph{une} strat\'egie, le joueur $X$ choisit une loi de probabilit\'e pour l'ensemble de ses strat\'egies, c'est--\`a--dire
+ il choisit une probabilit\'e $p_i$ pour chaqu'une de ses strat\'egies, 
+  \[ p_1, \ldots, p_n \quad\text{tel que}\quad \sum_{i=1}^n p_i = 1 \enspace . 
+  \]
+\end{definition}
+
+Pour l'exemple, le joueur $X$ va donc choisir une probabilit\'e $p$ avec laquelle il jouera $x_1$, et il jouera $x_2$ avec probabilit\'e $1-p$.
+
+De son cot\'e le joueur $Y$ utilise aussi une strat\'egie mixte, c'est--\`a--dire il choisira de jouer la strat\'egie $y_1$ avec probabilit\'e $q$
+ et la strat\'egie $y_2$ avec probabilit\'e $1-q$.
+
+Le joueur $X$ cherche a minimiser le risque, c'est--\`a--dire il cherche a maximiser le gain minimal.
+On calcule alors son gain comme une moyenne pond\'er\'ee, ou les poids sont donn\'es par les probabilit\'es de
+ses strat\'egies:
+ici $X$ gagne soit $p - (1-p)$, soit $-p +2(1-p)$, selon la strat\'egie choisi par $Y$.
+
+Pour minimiser le risque, joueur $X$ doit donc choisir $p\in [0,1]$ tel que le gain minimal 
+    \[ \min \{ p - (1-p), -p +2(1-p)\} = \min\{2p-1, -3p + 2 \} \]
+devient le plus grand possible. Ainsi son gain minimal garanti est
+    \[ \max_{p\in [0,1]} \Bigl( \min \{ p - (1-p), -p +2(1-p)\} \Bigr) = \frac{1}{5} \enspace, \]
+atteint pour $p = \frac{3}{5}$.
+
+% TODO: insert graph $ 2p -1$, $-3p + 2$, minimum, max of minimum as intersection
+
+\begin{figure}[htb]
+ \centering
+  \shorthandoff{:}
+\begin{tikzpicture}[domain=-0.1:1.0, scale=5]
+% \draw[very thin,color=gray] (-0.1,-1.1) grid (3.9,3.9);
+\draw[->] (-0.1,0) -- (1.1,0) node %(xline) 
+                                [right] {$p$};
+\draw[->] (0,-0.6) -- (0,1.1) node (yline) 
+                                [above] {$y$};
+
+\draw[color=blue] plot (\x,\x - 0.5) node[right] {$f(p) = 2p-1 $};
+\draw[color=red] plot (\x,{-1.5*\x + 1})node[right]{$g(p) = -3p + 2$};
+ \filldraw (0,0) circle (.2pt) node [below right]{$0$};
+
+\filldraw (0,1) circle (.2pt) node [left]{$2$};
+\filldraw (0,-0.5) circle (.2pt) node [left]{$-1$};
+\filldraw (1,0) circle (.2pt) node [below]{$1$};
+% \filldraw (0.5,0.5) circle (.5pt) node [below]{$ $};
+% \filldraw (1,1) circle (.5pt) node [below]{};
+
+\draw[dashed, thick, color=black] (0 , -0.53) -- (0.6 , 0.07) node [below] {$ $};
+\draw[dashed, thick, color=black] (0.6 , 0.07) -- (1 , -0.53) node [left] {$\min(f,g)$};
+\end{tikzpicture}
+ \shorthandon{:}
+\caption{Gain pour chacune des strat\'egies choisi par $Y$ et leur minimum}
+\end{figure}
+\begin{definition}
+ On associe au jeu $(X,Y,u)$ les ensembles des \emph{strat\'egies mixtes}
+  \[ X^m = \{ x = (p_1,\ldots,p_n), \quad p_i \geq 0, \quad \sum_{i=1}^n p_i = 1 \} \]
+  et
+  \[ Y^m = \{ y = (q_1,\ldots,q_m), \quad q_k \geq 0, \quad \sum_{k=1}^m q_k = 1 \} \]
+  ensemble avec la fonction de paiement
+  \[ u^m(x,y) = x^t \cdot u \cdot y \enspace . \]
+On appelle le jeu ainsi obtenu le \emph{prolongement mixte} du jeu initial.
+\end{definition}
+
+Pour notre exemple, les strat\'egies mixtes sont alors
+ \[ X^m = \{ (p,1-p) \mid 0 \leq p \leq 1 \} \cong [0,1] \]
+et 
+ \[ Y^m = \{ (q, 1-q) \mid 0 \leq q \leq 1 \} \cong [0,1] \enspace . \]
+Autrement dit, une strat\'egie de $X^m$ resp.\ $Y^m$ consiste 
+ en choisisant une fr\'equence (probabilit\'e) $p$ resp.\ $q$ pour la strat\'egie $x_1$ resp.\ $y_1$ du jeu original.
+ 
+La fonction de paiement associ\'ee est
+ \[ 
+     u^m (p,q) = 
+\begin{pmatrix}
+     p & 1-p
+    \end{pmatrix}
+  \begin{pmatrix}
+   1 & -1 \\
+   -1& 2
+  \end{pmatrix}
+  \begin{pmatrix}
+   q \\
+   1-q
+  \end{pmatrix} = (2p-1)q + (-3p+2)(1-q) 
+\]
+
+
+\begin{rem}
+ On obtient donc un jeu $(X^m,Y^m,u^m)$ avec des ensembles de strat\'egies \emph{infinis}.
+\end{rem}
+
+\begin{thm}
+ L'ensemble des points selles du prolongement mixte d'un jeu fini est convexe compact et \emph{non vide}.
+ Il contient l'ensemble (\'eventuellement vide) des points selles du jeu initial.
+ La valeur du prolongement mixte de $(X^m, Y^m, u^m)$, encore appel\'ee valeur mixte de $u$ et not\'ee $\val_m(u)$, verifie
+   \[ \max_i \min_k u(x_i,y_k) \leq \val_m(u) \leq \min_k \max_i u(x_i, y_k)  \enspace . \]
+ En particulier, si $u$ a une valeur, sa valeur mixte coincide avec celle de $u$.
+\end{thm}
+
+
+% \[
+% \begin{array}{l|rr|r}
+%     & y_1 & y_2  & \\ \hline
+% x_1 &  1 & -1  & \multirow{2}{*}{$\{p\times 1 + (1-p)\times (-1) , p \times -1 + (1-p)\times 2 \}$}\\
+% x_2 &   -1 & 2 & {} \\
+%     & \multicolumn{2}{c}{{\{p\times 1 + (1-p)\times (-1)}}  \\
+%     & \multicolumn{2}{c}{\newline p \times -1 + (1-p)\times 2 \}} & 
+% \end{array} 
+% \]
+
+
+
+
+Objectif: savoir repondre aux questions suivantes:
+
+
+\begin{itemize}
+ \item Qu'est-ce que c'est, une strat\'egie mixte ? (def)
+ \item Donner le prolongement mixte d'un jeu.
+                                           
+\end{itemize}
+
+
+\end{document}

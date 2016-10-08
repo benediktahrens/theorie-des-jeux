@@ -1,0 +1,86 @@
+\documentclass[12pt]{article}
+%\documentclass[10pt,a4paper]{book}
+\usepackage[utf8 ]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{hyperref}
+\usepackage{epsf}
+\usepackage{amsmath}
+\usepackage{epsfig}
+\usepackage{amssymb}
+\usepackage{epic}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\pagenumbering{arabic}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage{bm}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+
+\title{Th\'eorie des jeux : TD 1}
+\date{}
+
+\begin{document}
+\pagestyle{empty}
+
+\textbf{L1 MASS ;   Th\'eorie des jeux : TD 5    ;      Ann\'ee 2011-12, 2nd Semestre}
+%\maketitle
+\medskip
+\medskip
+\medskip
+
+\begin{center}
+\textbf{Exercice 1}
+\end{center}
+
+
+\begin{equation*}
+A=\begin{pmatrix}
+0&2&3\\
+3&2&0\\
+2&0&2
+\end{pmatrix};
+B=\begin{pmatrix}
+0&3&2\\
+2&0&3\\
+a&1&0
+\end{pmatrix}
+\end{equation*}
+
+\begin{itemize}
+\item Montrer que le jeu $A$ n'admet pas de valeur en strat\'egie pure. 
+\item Ce jeu $A$ vadmet une strat\'egie compl\`etement mixte. On note $(p_1, p_2, p_3)$ la strat\'egie mixte de X. Determiner la strat\'egie optimale de X.
+\item Donner la valeur du jeu mixte $A$.
+\item En s'aidant de la question pr\'ec\'edente, d\'eterminer la strat\'egie optimale de Y pour $A$, not\'ee $(q_1, q_2, q_3)$
+\item Montrer que le jeu $B$ n'a jamais de point selle en strat\'egie pure.
+\item Si $a\leq 0$, calculer la valeur mixte de $B$ et les strat\'egies mixtes optimales.
+\item Pour quelles valeurs de $a$, le jeu $B$ admet-il un point selle en strat\'egie compl\`etement mixtes ? 
+Donner alors sa valeur mixte.
+\end{itemize}
+
+
+
+\begin{center}
+\textbf{Exercice 2}
+\end{center}
+
+Deux nations sont en guerre. La premi\`ere du colonel Blotto dispose de 4 arm\'ees, la seconde du comte Baloney de 3 arm\'ees.
+Il y a deux fronts, un front au nord, le second au sud. Il n'est pas admis de d\'egarnir compl\`etement l'un des fronts, 
+une arm\'ee au minimum doit y \^etre pr\'esente. 
+Supposons que Blotto envoie $m_1$ arm\'ees au sud et Baloney, $n_1$. 
+\begin{itemize}
+ \item $m_1=n_1$, la bataille y est ind\'ecise et son gain est nul pour les deux pays
+ \item $m_1<n_1$, Blotto obtient le paiement $- m_1$, Baloney de $m_1$
+ \item $m_1>n_1$, Blotto obtient le paiement $n_1$, Baloney de $-n_1$
+\end{itemize}
+De m\^eme pour le front au nord. Toutefois, si Baloney remporte le front nord, il gagne 1 de plus.\\
+
+\begin{itemize}
+\item D\'efinir les diff\'erentes strat\'egies des 2 \og joueurs \fg.
+\item Ce jeu est-il \`a somme nulle ? Pourquoi ?
+\item Poser X, le colonel Blotto et Y, le colonel Baloney. Donner la forme normale de ce jeu.
+\item Montrer que ce jeu n'admet pas de point selle.
+\item D\'eterminer les strat\'egies mixtes de chacun des joueurs.  
+\end{itemize}
+
+\end{document}

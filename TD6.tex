@@ -1,0 +1,153 @@
+\documentclass[12pt]{article}
+%\documentclass[10pt,a4paper]{book}
+\usepackage[utf8 ]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{hyperref}
+\usepackage{epsf}
+\usepackage{amsmath}
+\usepackage{epsfig}
+\usepackage{amssymb}
+\usepackage{epic}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\pagenumbering{arabic}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage{bm}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+
+\title{Th\'eorie des jeux : TD 1}
+\date{}
+
+\begin{document}
+\pagestyle{empty}
+
+\textbf{L1 MASS ;   Th\'eorie des jeux : TD 6    ;      Ann\'ee 2011-12, 2nd Semestre}
+%\maketitle
+\medskip
+\medskip
+\medskip
+
+\begin{center}
+\textbf{Exercice : La bataille des sexes}\\
+\end{center}
+
+Un couple doit d\'ecider comment organiser leur soir\'ee. Ils ont le choix entre aller \`a un match de football ou \`a l'op\'era. 
+Pour les deux, le plus important, c'est de passer la soir\'ee ensemble. 
+N\'eanmoins, l'\'epouse a une pr\'ef\'erence pour le football et le mari pour l'op\'era. (A bas les pr\'ejug\'es !)
+
+\begin{itemize}
+\item Quelles sont les diff\'erentes strat\'egies ? 
+\item Comment peut-on \'evaluer les gains de chacun ? 
+\item Comment peut-on repr\'esenter la forme normale de ce jeu ? 
+\item Ce jeu est-il \`a somme nulle ?
+\end{itemize}
+
+
+\begin{center}
+\textbf{Exercice : Le dilemme du prisonnier}
+\end{center}
+
+Deux malfaiteurs sont arr\^et\'es pour un m\^eme forfait et interrog\'es s\'eparemment. Si un des deux prisonniers dénonce l'autre, 
+il est remis en liberté alors que le second obtient la peine maximale (5 ans). Si les deux se dénoncent entre eux, ils seront condamnés à une peine plus légère (3 ans).
+Si les deux refusent de dénoncer, la peine sera minimale (1 an), faute d'éléments au dossier.\\
+Quelles sont les strat\'egies de chacun des prisonniers ? Par quel gain peut on mod\'eliser l’issue des interrogatoires ? 
+Quelle est alors la forme normale du ``jeu'' ? Quels sont les  \'equilibres  \'eventuels ?
+                                                                
+
+
+\begin{center}
+\textbf{Exercice}
+\end{center}
+
+    Pour les jeux suivants indiquer les strat\'egies (pures) prudentes de chaque joueur. Si chacun des joueurs
+jouent prudemment, regrettent-ils a posteriori leur choix de strat\'egie ?
+
+\[
+\begin{array}{l|rr}
+    & y_1 & y_2  \\ \hline
+x_1 & (3,3) & (-1,2)\\
+x_2 & (2,-1)&(0,0)\\
+\end{array} \qquad
+\begin{array}{l|rr}
+    & y_1 & y_2  \\ \hline
+x_1 & (3,3) & (-1,2)\\
+x_2 & (2,1)&(0,0)\\
+\end{array}
+\]
+Les joueurs gagnent-ils \`a jouer prudemment ?
+
+
+\newpage
+
+
+\begin{center}
+\textbf{Exercice}
+\end{center}
+
+D\'eterminer l'\'equilibre pour ces jeux \`a somme non nulle. On s'aidera des strat\'egies domin\'ees.
+\[
+\begin{array}{l|rr}
+    & y_1 & y_2  \\ \hline
+x_1 & (3,0) & (2,1)\\
+x_2 & (0,0)&(3,1)\\
+x_3 & (1,1)&(1,0)
+\end{array} \qquad
+\begin{array}{l|rrr}
+    & y_1 & y_2 & y_3 \\ \hline
+x_1 & (3,1) & (2,2) & (1,3) \\
+x_2 & (2,0)&(1,1)&(2,2)\\
+x_3 & (1,0)&(0,3)&(0,1)\\
+x_4 & (2,1)&(1,0)&(0,3)\\
+x_5 & (1,0)&(2,0)&(4,1)\\
+\end{array}
+\]
+
+\begin{center}
+\textbf{Exercice : La fureur de vivre}
+\end{center}
+
+                        
+Deux jeunes irresponsables roulent en voiture \`a toute allure l’un vers l’autre jusqu'\`a ce que l’un des deux freine
+avant l’autre (ou pas). Leur ``gain'' \`a l'issue du jeu peut \^etre quantifi\'e comme suit : s'ils freinent en m\^eme
+temps, le gain est 2 pour chacun. Si l'un freine avant l'autre, son gain est 0 alors que l’autre gagne 4. Si aucun
+des deux ne freine c’est l’accident, le gain est -2 pour chacun.
+Les  \'equilibres du jeu sont ils prudents pour chacun des joueurs ?
+
+\begin{center}
+\textbf{Exercice : Probl\`eme de Monty Hall}
+\end{center}
+Le jeu oppose un pr\'esentateur (joueur Y) \`a un candidat (joueur X). 
+Ce joueur est plac\'e devant trois portes ferm\'ees. 
+Derri\`ere l'une d'elles se trouve une voiture (ou tout autre prix magnifique) 
+et derri\`ere chacune des deux autres se trouve une ch\`evre (ou tout autre prix sans importance). 
+Il doit tout d'abord d\'esigner une porte. 
+Puis le pr\'esentateur ouvre une porte qui n'est ni celle choisie par le candidat, ni celle cachant la voiture 
+(le pr\'esentateur sait quelle est la bonne porte dès le début). 
+Le candidat a alors le droit ou bien d'ouvrir la porte qu'il a choisie initialement, ou bien d'ouvrir la troisi\`eme porte.
+                        
+\begin{itemize}
+ \item D\'eterminer la forme extensive de ce jeu.
+ \item Donner la forme normale pour ce jeu.
+ \item R\'eduire la forme obtenue. 
+\end{itemize}
+
+% \begin{center}
+% \textbf{Exercice : Des imp\^ots}
+% \end{center}
+% 
+% Une entreprise a deux soci\'et\'es, Transactions ombrag\'ees et Ecervel\'e. Chacune de ces soci\'et\'es paye, respectivement, 
+% en moyenne  4,000,000 euros et 12,000,000 euros d’imp\^ots chaque ann\'ee. Pour chaque soci\'et\'e l’entreprise peut d\'ecider de d\'eclarer les vrais comptes, 
+% ou de falsifier les comptes de façon que des imp\^ots \`a payer soit z\'ero. L’administration fiscale ne dispose pas de ressources suffisantes pour 
+% contr\^oler les comptes de plus d’une soci\'et\'e chaque ann\'ee. S’il examine la soci\'et\'e avec des fausses d\'eclarations, 
+% cette soci\'et\'e est oblig\'ee de payer ses imp\^ots plus un redressement s’\'elevant \`a la moiti\'e du montant des imp\^ots à payer.
+% 
+% a) Mod\'eliser cette situation comme un jeu o\`u la r\'ecompense est la somme d’argent que les imp\^ots reçoivent (c’est-\`a-dire, d\'efinir les strat\'egies Ii pour 
+% l’entreprise et les strat\'egies IIj pour le centre des imp\^ots. Puis faire la matrice 4x2).
+% b) Montrer que l’entreprise paye en moyenne 14,000,000 euros d’imp\^ots et trouver la strat\'egie optimale des deux joueurs. 
+% c) Supposer maintenant que le redressement est deux fois le montant des imp\^ots \`a payer (au lieu de la moiti\'e).
+%  Donner la solution de ce jeu.
+
+
+\end{document}

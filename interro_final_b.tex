@@ -1,0 +1,256 @@
+\documentclass[french,11pt,leqno]{article}
+
+\usepackage{amsmath,%amssymb,
+         babel,a4wide,theorem, verbatim}
+\usepackage{enumerate}
+%\usepackage[latin1]{inputenc}
+\usepackage[charter]{mathdesign} 
+
+\setlength{\topmargin}{-2cm}
+\setlength{\textheight}{23cm}
+
+%\pagestyle{empty}
+
+% \textheight 24 true cm
+% \textwidth 16.5 true cm
+% \topmargin -1cm
+% \oddsidemargin -3 truemm
+% \evensidemargin 3 truemm
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\Rn}{\mathbb{R}^n}
+
+\newcommand{\dsp}{\displaystyle}
+
+\newcounter{exocount}
+\setcounter{exocount}{1}
+\newcounter{questcount}
+
+\def\exo{\bigskip\noindent{\bf Exercice \theexocount {} -}
+  \addtocounter{exocount}{1} \setcounter{questcount}{1}} 
+
+\def\q{\smallskip\noindent{\bf \number\thequestcount -}
+  \addtocounter{questcount}{1}}
+
+\def\indic{\smallskip\noindent\textit{Indication.} }
+
+\pagestyle{empty}
+
+\begin{document}
+
+% \begin{center}
+% {\bf Universit\'e de Nice-Sophia Antipolis}
+% \end{center}
+% \bigskip
+
+% \flushright
+L1 MASS 2011--12 \hfill THEORIE DES JEUX 
+
+CONTROLE FINAL --- 04 mai 2012
+
+% \noindent{\bf ANN\'EE UNIVERSITAIRE~:} 2011-12
+% \noindent{\bf ANN\'EE D'\'ETUDE~:}  
+% \noindent{\bf MATI\`ERE~:} 
+% 
+% \flushleft
+
+\vskip1cm
+
+\noindent {\bf NOM:} \hspace{6.4cm} {\bf PR\'ENOM:} \\ 
+{\bf MOT SECRET:} \hspace{5cm} {\bf NOMBRE FEUILLES:}
+
+
+
+
+% \begin{center}
+% {\bf  CONTROLE FINAL}
+% 
+% {\bf 04 mai 2012 }
+% \end{center}
+
+\medskip
+
+{\bf \noindent Tous les documents et les calculatrices sont interdits.} 
+
+\smallskip
+
+{\bf \noindent Il vous est toujours demand\'e de justifier avec soin vos r\'eponses.} 
+
+\medskip
+
+
+\exo
+On consid\`ere le jeu de forme normale suivante.
+
+\begin{equation*}
+\begin{comment}
+\begin{array}{l|rrrr}
+\mathbf{A} & y_1 & y_2 & y_3 & y_4 \\ \hline
+x_1& 3&-1& 4 & 2\\
+x_2&-1& 0 &3&4\\
+x_3&2&-15&0&3\\
+x_4&-1&2&3&7
+\end{array}
+\qquad
+\end{comment}
+%
+%
+\begin{array}{l|rrrr}
+\mathbf{A}   & y_1 & y_2 & y_3 & y_4\\ \hline
+x_1 &  3 & 9 & -13 & -3 \\
+x_2 &  6 & 10 & -6 & -6 \\
+x_3 &  6 & -3 & 6 & -3 \\
+x_4 &  3 & -3 & -3 & -3 \\  % corrected last entry wrt controle 1
+\end{array}
+%
+% \qquad
+% %
+% \begin{array}{l|rrr}
+% \mathbf{C}& y_1&y_2&y_3 \\ \hline
+% x_1& 1&1&p\\
+% x_2& -1&1&\sqrt{10}\\
+% x_3&\sqrt{8}&1& 1
+% \end{array}
+\end{equation*}
+
+% \begin{enumerate}[a)]%\setlength{\itemsep}{-1ex}
+% \item D\'eterminer les strat\'egies domin\'ees des deux joueurs $X$ et $Y$ de $A$. Donner le jeu r\'eduit de $A$, qu'on appellera $A'$. 
+%       % A' il restent  x_1, x_3, y_1, y_2
+% \item Le jeu $A'$ poss\`ede--t--il des points selles ? 
+%            % y en a pas
+% \item Donner les strat\'egies prudentes de $A'$ pour chacun des joueurs.
+% \item Comment pourrait--on modifier la fonction de paiement de $A'$ pour obtenir un jeu \`a valeur en strat\'egie pure ? On modifiera
+%         une seule valeur de la fonction de paiement.
+D\'eterminer les points selles de $\mathbf{A}$. En d\'eduire les strat\'egies optimales de chacun des joueurs.
+% \item Selon la valeur de $p$, d\'eterminer les strat\'egies dominantes des deux joueurs $X$ et $Y$ de $C$.
+%         % b \leq 1  alors il restent que x_3, y_1    
+%         % b \geq 1   pas fait
+% \item D\'eterminer, pour quelle valeur de $p$, le jeu $C$ est \`a valeur en strat\'egie pure. Vous donnerez alors les points selles selon les valeurs de $p$.
+%         %   minmax = max(b,1)   =?=    min(b,1) =  maxmin 
+%         %   pour b = 1 !!!
+% \end{enumerate}
+
+
+\exo
+On consid\`ere la forme normale suivante :
+\begin{equation*}
+\begin{array}{l|rrrrr}
+\mathbf{B} & y_1 & y_2 & y_3 & y_4 & y_5  \\ \hline
+x_1&5&-2&3&7&0\\
+x_2&0&5&2&2&6\\
+x_3&0&3&2&1&5\\
+
+\end{array}% 
+\end{equation*}
+
+\begin{enumerate}[a)]%\setlength{\itemsep}{-1ex}
+\item Rappeler les d\'efinitions des strat\'egies domin\'ees pour chacun des deux joueurs $X$ et $Y$. 
+\item Apr\`es avoir \'elimin\'e les diff\'erentes strat\'egies domin\'ees, on montrera que 
+le jeu r\'eduit de $\mathbf{B}$ est $\mathbf{B'}$ :
+ \begin{equation*}
+\begin{array}{l|rrr}
+\mathbf{B'} & y_1 & y_2 & y_3 \\ \hline
+x_1 & 5 & -2& 3\\
+x_2 & 0 & 5& 2\\
+\end{array}% 
+\end{equation*}
+\item Le jeu $\mathbf{B'}$ poss\`ede--t--il des points selles ? 
+\item Calculer les strat\'egies \emph{mixtes} prudentes du joueur $X$. 
+% 
+% \item Soit $(p_1, p_2, p_3)$ la strat\'egie mixte optimale du joueur X. D\'eterminer les probabilit\'es $p_1$, $p_2$, $p_3$ en justifiant soigneusement. 
+On donnera et on s'aidera du graphique correspondant construit \textbf{avec soin}. 
+\item En d\'eduire la valeur du jeu.
+\item Calculer les strat\'egies mixtes optimales du joueur $Y$, en justifiant soigneusement. On pourra 
+s'aider de la valeur du jeu. 
+\end{enumerate}
+
+\exo
+\[
+\begin{array}{l|rrr}
+\mathbf{C} & y_1 & y_2 & y_3  \\ \hline
+x_1& -4& 3& 6 \\
+x_2& 8& 3 &  2\\
+\end{array}
+\]
+\begin{enumerate}[a)]
+\item Le jeu $\mathbf{C}$ admet--il une valeur en strat\'egie pure ?
+\item Calculer les strag\'egies mixtes prudentes de $X$. En d\'eduire la valeur (mixte) du jeu.
+\item Calculer les strag\'egies mixtes prudentes de $Y$.
+\end{enumerate}
+
+
+\exo
+Le propri\'etaire d'une maison poss\`edent 3 chiens pour faire fuir les voleurs. 
+Cette maison a deux entr\'ees que nous noterons $A$ et $B$. Un clan de deux brigands tentent de p\'en\'etrer dans la maison.\\
+Le clan que nous consid\'erons comme le joueur X peut soit d\'ecider de se s\'eparer et donc de mettre un voleur \`a chaque entr\'ee, soit de rester 
+group\'e et donc de mettre les deux voleurs \`a la m\^eme entr\'ee.\\ 
+Le propri\'etaire que nous appelerons le joueur Y a choisi de mettre deux chiens \`a une entr\'ee et le troisi\`eme \`a l'autre entr\'ee.\\ 
+On consid\`ere que X re\c coit le gain +1 s'il existe au moins une entr\'ee o\`u X a strictement plus de voleurs que le joueur Y a de chiens. 
+Dans le cas contraire, X perd et doit payer 1.
+\begin{enumerate}[a)]
+\item D\'ecrire de fa\c con claire les trois strat\'egies de X et les deux strat\'egies de Y.
+\item D\'eterminer la matrice de paiement M de ce jeu. 
+\end{enumerate}
+
+
+\exo 
+On consid\`ere la forme normale $u_t$ suivante, pour $t$ un r\'eel :
+\begin{equation*}
+% \begin{pmatrix}
+ \begin{array}{l|rr}
+     & y_1 & y_2  \\ \hline
+ x_1 & t+1&1\\
+ x_2 & 0&2t\\
+ x_3 & -2&-1
+ \end{array}
+%
+% 
+% \begin{array}{l|rrr}
+%     & y_1 & y_2 & y_3  \\ \hline
+% x_1 & t-1&0 & 1\\
+% x_2 & 1&3t & 2\\
+% 
+% \end{array}
+%
+%
+% \end{pmatrix}
+\end{equation*}
+
+\begin{enumerate}[a)]%\setlength{\itemsep}{-2ex}
+\item Dessiner le graphe de la fonction $t \mapsto \inf_{y \in Y} \sup_{x \in X} u_t(x,y)$. On expliquera les diff\'erentes \'etapes effectu\'ees. \label{question:1}
+\item Dessiner sur un autre graphe, la fonction $t \mapsto \sup_{x \in X} \inf_{y \in Y} u_t(x,y)$. \label{question:2}
+\item D\'eduire des graphes des questions pr\'ec\'edentes les strat\'egies prudentes de X et Y en fonction de t. 
+     On expliquera comment elles sont d\'etermin\'ees.
+\item Dessiner sur un troisi\`eme graphe, les fonctions \[t \mapsto \inf_{y \in Y} \sup_{x \in X} u_t(x,y)\] et \[t \mapsto \sup_{x \in X} \inf_{y \in Y} u_t(x,y)\]
+ obtenues lors des questions \ref{question:1} et \ref{question:2}. 
+\item Pour quelles valeurs de $t$, le jeu a-t-il une valeur en strat\'egie pure et quelle est-elle ? On expliquera comment ces valeurs sont d\'etermin\'ees.
+\item Selon les valeurs de $t$, d\'eterminer les strat\'egies dominantes pour $X$. On donnera les arguments utilis\'es.
+% \item Selon les valeurs de $t$, d\'eterminer les strat\'egies dominantes pour $Y$. On donnera les arguments utilis\'es.
+% TODO
+
+
+\end{enumerate}
+
+
+
+
+
+\exo
+Deux jeunes irresponsables roulent en voiture \`a toute allure l'un vers l'autre jusqu'\`a ce que l'un des deux freine ou pas. 
+Leur ``gain'' \`a l'issue du jeu peut \^etre quantifi\'e comme suit : s'ils freinent en m\^eme
+temps, le gain est 2 pour chacun. Si l'un freine avant l'autre, son gain est 0 alors que l'autre gagne 4. Si aucun
+des deux ne freine c'est l'accident, le gain est -2 pour chacun.
+\begin{enumerate}[a)]
+  \item Expliquer pourquoi ce jeu n'est pas \`a somme nulle.
+  \item Donner la forme matricielle du jeu.
+  \item Donner les \'equilibres du jeu. Expliquer le raisonnement fait pour trouver ces \'equilibres.
+  \item Donner les strat\'egies prudentes de chacun des joueurs.
+\end{enumerate}
+
+
+\end{document}

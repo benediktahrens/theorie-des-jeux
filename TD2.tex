@@ -1,0 +1,143 @@
+
+\documentclass[12pt]{article}
+%\documentclass[10pt,a4paper]{book}
+\usepackage[utf8 ]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{hyperref}
+\usepackage{epsf}
+\usepackage{amsmath}
+\usepackage{epsfig}
+\usepackage{amssymb}
+\usepackage{epic}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\pagenumbering{arabic}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage{bm}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+
+\title{Th\'eorie des jeux : TD 1}
+\date{}
+
+\begin{document}
+\pagestyle{empty}
+
+\textbf{L1 MASS ;   Th\'eorie des jeux : TD 2    ;      Ann\'ee 2011-12, 2nd Semestre}
+%\maketitle
+\medskip
+\medskip
+\medskip
+
+\begin{center}
+\textbf{Exercice 1}
+\end{center}
+
+
+Etudier les formes normales suivantes, d\'eterminer les points selles et les strat\'egies optimales pour chacun des joueurs :
+\begin{equation*}
+\begin{pmatrix}
+-5&-3&2&1\\
+-3&0&3&2\\
+-3&0&-3&-1
+\end{pmatrix} \text{ ; }
+\begin{pmatrix}
+4&0&-2\\
+-2&-2&-4\\
+0&-4&-2
+\end{pmatrix}
+\end{equation*}
+
+\medskip
+\medskip
+\begin{center}
+\textbf{Exercice 2}
+\end{center}
+Pierre et Jean inventent un nouveau jeu. Ils poss\`edent chacun 6 cartes en main : un roi rouge et un noir,
+une dame rouge et une noire, un valet rouge et un noir. Le roi remporte sur les deux autres figures. La dame remporte sur un valet. 
+Si deux cartes sont de m\^emes valeurs, c'est le rouge qui remporte sur le noir. Si deux m\^emes cartes sont jou\'ees, il y a \'egalit\'e. Le gagnant re\c coit 2 euros du perdant.
+
+\begin{itemize}
+\item Donner la forme normale de ce jeu et \'etudier ses points selles. Donner aussi les strat\'egies optimales.
+\item Pierre et Jean d\'ecident de modifier les r\`egles : Pierre gagne 2 de plus quand il gagne avec des rouges et Jean gagne 1 en cas d'\'egalit\'e pour les cartes. 
+Quel joueur a \'et\'e le plus malin ? 
+\item Autre changement de r\`egles : maintenant le valet gagne sur le roi et fait gagner $a$ euros au lieu de 2, $a$, un r\'eel tel que $a>2$. Donner la forme normale. 
+\end{itemize}
+\medskip
+\medskip
+
+\begin{center}
+\textbf{Exercice 3 : Un mod\`ele \'economique}
+\end{center}
+On consid\`ere deux marchands en concurrence sur le march\'e d’un produit dont le co\^ut de production unitaire est de 2 euros. 
+Lorsque le produit est propos\'e sur le march\'e à 4 euros, il y a 200 clients pr\^ets à l’acheter ; si le prix propos\'e est de 6 euros, 
+il ne reste plus que 100 acheteurs qui accepteront de payer ce prix.\\
+Chaque marchand choisit ind\'ependamment et dans l’ignorance du choix de son concurrent de fixer son prix de vente à 4 ou 6 euros. 
+Si les deux firmes choisissent le m\^eme prix de vente, elles se partagent le march\'e par moiti\'e (leurs produits étant suppos\'es indiscernables) ; 
+en revanche si l’une choisit de vendre \`a 4 euros tandis que sa concurrente tente le prix \'elev\'e, elle obtient la totalit\'e du march\'e.\\
+Comment pourrait-on repr\'esenter ce mod\`ele sous la forme d'un jeu \`a somme nulle et donner sa forme normale ?
+\medskip
+\medskip
+
+\begin{center}
+\textbf{Exercice 4 : Quelques param\`etres}
+\end{center}
+\begin{itemize}
+\item Soient a, b, c et d trois r\'eels tels que a et d soient tous deux strictements sup\'erieurs \`a b et c. 
+Etudier le jeu suivant, peut-il admettre une valeur \`a strat\'egie pure? Si ce n'est pas le cas, comment pourrait-on modifier l'\'enonc\'e pour qu'il puisse l'admettre ? 
+Donner un exemple de valeurs, a, b, c et d.
+\begin{equation*}
+\begin{pmatrix}
+a&b\\
+c&d
+\end{pmatrix}
+\end{equation*}
+\item Soient a,b et c trois r\'eels avec b>c. Etudier selon les diff\'erents cas pour a :
+\begin{equation*}
+\begin{pmatrix}
+a&a\\
+c&a
+\end{pmatrix}\text{ ; }
+\begin{pmatrix}
+a&b\\
+c&a
+\end{pmatrix}
+\end{equation*}
+
+\item Soit la matrice $G=diag(a_1,...a_n)$ avec $a_1,...,a_n>0$. Etudier ce jeu et donner un exemple de jeu qui admet une valeur \`a strat\'egie pure.
+
+\item Etudier les jeux en fonction du param\`etre $a$ : ces jeux admettent-ils une valeur \`a strat\'egie pure ?
+
+\begin{equation*}
+\begin{pmatrix}
+1&-2&3&1\\
+-2&-1&2&3+a\\
+-2&1&2&1\\
+1&-1&-1&2
+\end{pmatrix} \text{ ; }
+\begin{pmatrix}
+2&1&-1\\
+0&a&-2\\
+1&1&2
+\end{pmatrix} 
+\end{equation*}
+\end{itemize}
+\medskip
+\medskip
+
+\begin{center}
+\textbf{Exercice 5 : Jeu du Colonel Blotto}
+\end{center}
+
+Deux nations sont en guerre. La premi\`ere dispose de 5 arm\'ees, la seconde de 4 arm\'ees. Il y a deux fronts, un front au nord, le second au sud. 
+Il n'est pas admis de d\'egarnir compl\`etement l'un des fronts, une arm\'ee au minimum doit y \^etre pr\'esente. On suppose qu'en cas d'\'egalit\'e num\'erique sur un front, 
+la bataille y est ind\'ecise et son gain est nul pour les deux pays. Toutefois, en cas de d\'es\'equilibre, il y a victoire de la nation qui a d\'eploy\'e les force les plus importantes.
+Les deux fronts ne sont pas d'importances \'egales : une victoire au nord est \'evalu\'ee \`a une valeur de $a$, une victoire au sud \`a une valeur de $b$.
+
+
+Comment mod\'eliser la forme normale de ce jeu ? On commencera par d\'efinir les diff\'erentes strat\'egies des 2 \og joueurs \fg.
+
+\medskip
+
+\end{document}

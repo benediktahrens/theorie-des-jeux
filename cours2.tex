@@ -1,0 +1,248 @@
+\documentclass[11pt]{scrartcl}
+%\documentclass[10pt,a4paper]{book}
+% \usepackage[latin1]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{hyperref}
+\usepackage{lmodern}
+% \usepackage{epsf}
+\usepackage{amsmath}
+\usepackage{amsthm}
+% \usepackage{epsfig}
+\usepackage{amssymb}
+% \usepackage{epic}
+% \usepackage{stmaryrd}
+\usepackage{graphicx}
+% \pagenumbering{arabic}
+
+\usepackage{verbatim}
+% \usepackage{bm}
+\usepackage[T1]{fontenc}
+% \usepackage{geometry}
+\usepackage{multirow}
+\usepackage{hyperref}
+
+\title{Th\'eorie des jeux : Cours 2\\ {\large Points selles, Strat\'egies optimales}}
+\author{\url{http://math.unice.fr/~ahrens}}
+\date{}
+
+
+
+\newtheoremstyle{mydefinition}
+ {\topsep} % Platz vor dem Theorem
+ {\topsep} % Platz nach dem Theorem
+ {} % Schrift im Theorem
+ {} % Einrueckung (empty = keine Einrueckung, \parindent = Normale Paragrapheneinrueckung)
+ {} % Schrift in der Kopfzeile des Theorems
+ {} % Punktation nach dem Theoremkopf
+ {10pt} %     Space after thm head (\newline = linebreak)
+ {{\bfseries\thmnumber{#2 }\thmname{#1}}{\thmnote{ (#3)}}:} % Kopfformatierung
+
+\theoremstyle{mydefinition}
+\newtheorem{definition}{D\'efinition}
+\newtheorem{exo}[definition]{Exercice}
+\newtheorem{example}[definition]{Exemple}
+\newtheorem{rem}[definition]{Remarque}
+
+\newtheoremstyle{myplain}
+ {\topsep} % Platz vor dem Theorem
+ {\topsep} % Platz nach dem Theorem
+ {\itshape} % Schrift im Theorem
+ {} % Einrueckung (empty = keine Einrueckung, \parindent = Normale Paragrapheneinrueckung)
+ {} % Schrift in der Kopfzeile des Theorems
+ {} % Punktation nach dem Theoremkopf
+ {10pt} %     Space after thm head (\newline = linebreak)
+ {{\bfseries\thmnumber{#2 }\thmname{#1}}\thmnote{ (#3)}:} % Kopfformatierung
+\theoremstyle{myplain}
+\newtheorem{thm}[definition]{Th\'eor\`eme}
+
+
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+
+\DeclareMathOperator{\Maxmin}{Maxmin}
+\DeclareMathOperator{\Minmax}{Minmax}
+\DeclareMathOperator{\val}{val}
+
+\begin{document}
+
+ \maketitle
+% \noindent
+% {{\Large Th\'eorie des jeux : Cours 2} \hfill
+% {\large Points selles, Strat\'egies optimales}}\\
+% {\url{http://math.unice.fr/~ahrens}}\\
+
+\begin{definition}[Point selle = Equilibre de Nash]
+ On appelle  \emph{point selle} ou \emph{equilibre de Nash} de la fonction
+ \[ X \times Y \to \R \]
+ un couple $(x^*, y^*) \in X\times Y$ tels que pour tout $x\in X$ et $y \in Y$
+ \begin{equation}  u(x,y^*) \leq u(x^*,y^*) \leq u(x^*,y) \enspace . \label{eq:point_selle}\end{equation}
+
+ On appelle $S$ l'ensemble des points selles d'un jeu.
+\end{definition}
+
+\begin{rem}
+ Soit le jeu $(X,Y,u)$  donn\'e par sa forme normale. Alors un coefficient de la matrice
+ repr\'esentant du jeu est un point selle si et seulement si ce coefficient est
+\emph{en m\^eme temps}
+ \begin{itemize}
+  \item le maximum de sa colonne \emph{et}
+  \item le minimum de sa ligne.
+ \end{itemize}
+
+\end{rem}
+
+
+
+La signification d'un point selle est:
+\begin{itemize}
+ \item si joueur $X$ change sa strat\'egie de $x^*$ vers une autre strat\'egie $x\in X$, pendant que 
+  $Y$ reste sur $y^*$, alors joueur $X$ gagnera moins ou pareil qu'avec la strat\'egie $x^*$, car
+     \[u(x,y^*) \leq u(x^*,y^*) \enspace ; \]
+\item si joueur $Y$ change sa strat\'egie de $y^*$ vers une autre strat\'egie $y\in Y$, pendant que 
+  $X$ reste sur $x^*$, alors joueur $Y$ gagnera moins ou pareil qu'avec la strat\'egie $y^*$, car
+     \[u(x^*,y^*) \leq u(x^*,y) \enspace . \]
+ (On rappelle que $Y$ gagne plus quand $u$ est plus petit.)
+\end{itemize}
+
+\begin{thm}
+ Un jeu ne poss\`ede pas n\'ecessairement de point selle. 
+
+Si le jeu $(X,Y,u)$ poss\`ede au moins un point selle, c'est--\`a--dire si $S \neq \emptyset$, alors tous les points selles 
+ont le m\^eme paiement. %Ce paiement est \'egal \`a la valeur du jeu (= $\Minmax
+
+Les points selles sont \'echangeables: pour tout $(x_1, y_1)\in S$ et $(x_2, y_2)\in S$, on a aussi
+\[ (x_1, y_2) \in S \quad\text{ et }\quad (x_2, y_1) \in S \enspace . \]
+
+Donc il existe un sous--ensemble $O_X$ des strat\'egies de $X$ et un sous--ensemble $O_Y$ des strat\'egies
+ de $Y$, appel\'es \emph{ensemble des strat\'egies optimales} de respectivement, $X$ et $Y$ tels que
+ \[ S = O_X \times O_Y \enspace . \]
+\end{thm}
+
+\begin{thm}
+ Si le jeu $(X,Y,u)$ poss\`ede au moins un point selle, c'est--\`a--dire si $S \neq \emptyset$, alors 
+   le jeu admet une valeur en strat\'egie pure. Autrement dit, dans ce cas on a que
+     \[ \Minmax = \Maxmin \enspace . \]
+  En plus, dans ce cas le paiement des points selles (qui est \'egal pour tous les points selles) est \'egal
+  \`a la valeur $\Minmax$ du jeu.
+
+\end{thm}
+
+\begin{rem}
+ Le th\'eor\`eme pr\'ecedent dit que, pour trouver les points selles, on peut proc\'eder comme ci:
+\begin{enumerate}
+ \item D\'eterminer la valeur du jeu $\val(u)$ en strat\'egies pures.
+   \begin{itemize}
+    \item  Si le jeu n'a pas de valeur en strat\'egie pure, i.e.\ si $\Minmax \neq \Maxmin$, alors il n'y a pas de points selles.
+    \item Si le jeu admet une valeur en strat\'egie pure, i.e.\ si $\Minmax = \Maxmin:= \val(u)$, alors les candidats $(x,y)$ possibles pour
+            les points selles sont ceux avec $u(x,y) = \val(u)$. Dans ce cas on continue avec l'\'etape suivant.
+         
+   \end{itemize}
+
+ \item Pour tout point $(x,y)$ avec $u(x,y) = \val(u)$ on examine si la d\'efinition d'un point selle  \eqref{eq:point_selle}
+       est v\'erifi\'ee.
+\textbf{Attention: Un point $(x,y)$ avec $u(x,y) = \val(u)$ n'est pas forcement un point selle. 
+          La v\'erification est necessaire, cf.\ Exo \ref{exo:points_selles}.}
+\end{enumerate}
+
+\end{rem}
+
+
+\begin{thm}\label{thm:val_min_max}
+ Supposons que le jeu $(X,Y,u)$ poss\`ede au moins un point selle, c'est--\`a--dire $S \neq \emptyset$. Alors une strat\'egie 
+ $\bar{x}\in X$ du joueur $X$ est optimale ($\bar{x} \in O_X$) si et seulement si elle verifie:
+   \[  \min_{y\in Y} u(\bar{x},y) = \val(u) \enspace . \]
+
+ Une strat\'egie $x\in X$ n'est pas optimale si et seulement si
+
+   \begin{equation}  \min_{y\in Y} u(\bar{x},y) < \val(u) \enspace . \label{eq:1}\end{equation}
+ 
+ De m\^eme, une strat\'egie 
+ $\bar{y}\in Y$ du joueur $Y$ est optimale ($\bar{y} \in O_Y$) si et seulement si elle verifie:
+   \[  \max_{x\in X} u(x,\bar{y}) = \val(u) \enspace . \]
+Une strat\'egie $y\in Y$ n'est pas optimale si et seulement si
+\begin{equation}  \max_{x\in X} u(x,\bar{y}) > \val(u) \enspace . \label{eq:2} \end{equation}
+   
+\end{thm}
+
+\begin{rem}
+ Le th\'eor\`eme \ref{thm:val_min_max} justifie de parler de strat\'egie \emph{optimale}: en jouant une strat\'egie $x\in O_X$, 
+ le joueur $X$ obtient un gain qui \'equivaut \emph{au moins} la valeur $\val(u)$ du jeu.
+
+ De m\^eme, en choisissant une strat\'egie optimale $y \in O_Y$ est s\^ur de ne pas perdre plus que la valeur $\val(u)$ du jeu, i.e.\
+ il gagnera au moins $-\val(u)$.
+
+ Si $X$ choisit une strat\'egie non optimale, le joueur $Y$ peut trouver une strat\'egie $y$ 
+ tel que $u(x,y) < \val(u)$ d'apr\`es la propri\'et\'e \eqref{eq:1}, c--a--d.\ $X$ risque de gagner moins que $\val(u)$ 
+  (au cas ou $Y$ anticipe l'erreur de $X$).
+
+ De m\^eme, si $Y$ choisit une strat\'egie non optimale, le joueur $X$ peut trouver une strat\'egie $x$ tel que 
+  $u(x,y) > \val(u)$ d'apr\`es la propri\'et\'e \eqref{eq:2}, c--a--d.\ $Y$ risque de perdre plus que $\val(u)$ 
+  (au cas ou $X$ anticipe l'erreur de $Y$).
+
+%  Vu qu'on suppose que $X$ et $Y$ sont des joueurs rationnels, ils vont chacun choisir des strat\'egies optimales.
+
+\end{rem}
+% 
+% \begin{rem}
+%   La remarque pr\'ecedente dit que les jeux qui admettent une valeur en strat\'egie pure ne valent pas la peine d'\^etre jou\'es.
+% \end{rem}
+
+\begin{rem}
+ Si on suppose que $X$ et $Y$ sont des joueurs rationnels, 
+  ils vont chacun choisir des strat\'egies optimales et donc le gain 
+  correspondra forc\'ement \`a la valeur en strat\'egie pure. 
+ Le jeu ne vaudra alors pas vraiment la peine d'\^etre jou\'e. 
+Par contre, si vous d\'ecidez de jouer avec votre petit fr\`ere qui n'a pas assist\'e \`a ce cours, 
+vous avez quand m\^eme des chances de gagner plus que la valeur en strat\'egie pure...
+\end{rem}
+
+
+\begin{example}
+  Soit le jeu $(X,Y,u)$ donn\'e par sa forme normale
+
+  \[
+\begin{array}{l|rrr}
+    & y_1 & y_2 & y_3 \\ \hline
+x_1 &  -2 & 5 & -3 \\ 
+x_2 &  -1 & 0 & -1 \\
+x_3 &  -3 & 2 & -2
+\end{array}
+\]
+
+Les strat\'egies optimales du joueur $X$, c'est $O_X = \{x_2\}$.
+Les strat\'egies optimales du joueur $Y$, c'est $O_Y = \{y_1, y_3\}$.
+
+\end{example}
+
+\begin{exo}\label{exo:points_selles}
+  Soit le jeu $(X,Y,u)$ donn\'e par sa forme normale
+  \[
+\begin{array}{l|rrrr}
+    & y_1 & y_2 & y_3 & y_4\\ \hline
+x_1 &  -1 & 1 & 1 & -1 \\ 
+x_2 &  -2 & -3 & 2 & 2 \\
+x_3 &  -2 & 1 & -2 & 1 \\
+x_4 &  -1 & -3 & 4 & 1
+\end{array}
+\]
+Ce jeu admet-il une valeur en strat\'egie pure ? 
+Calculer les points selles du jeu. 
+Montrer que $(x_1,y_4)$ et $(x_4,y_1)$ ne sont pas des points selles.
+Quelles sont les strat\'egies optimales de $X$ et $Y$ ?
+\end{exo}
+
+
+
+Objectif: savoir repondre aux questions suivantes:
+
+Etant donn\'e le jeu $(X,Y,u)$, 
+\begin{itemize}
+ \item qu'est-ce que c'est, un point selle ? (def)
+ \item trouver les points selle du jeu. (exo)
+ \item donner une propri\'et\'e rigolote des points selle d'un jeu. (thm)
+ \item qu'est-ce que c'est, une strat\'egie optimale du joueur $X$ ? (def)
+ \item trouver les strat\'egies optimales du jeu. (exo)
+                                           
+\end{itemize}
+
+
+\end{document}

@@ -1,0 +1,152 @@
+\documentclass[11pt]{scrartcl}
+%\documentclass[10pt,a4paper]{book}
+% \usepackage[latin1]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{hyperref}
+\usepackage{lmodern}
+% \usepackage{epsf}
+\usepackage{amsmath}
+\usepackage{amsthm}
+% \usepackage{epsfig}
+\usepackage{amssymb}
+% \usepackage{epic}
+% \usepackage{stmaryrd}
+\usepackage{graphicx}
+% \pagenumbering{arabic}
+
+\usepackage{verbatim}
+% \usepackage{bm}
+\usepackage[T1]{fontenc}
+% \usepackage{geometry}
+\usepackage{multirow}
+\usepackage{hyperref}
+
+\title{Th\'eorie des jeux : Cours 1 \\ {\large Jeux \`a somme nulle, Valeur d'un jeu}}
+\author{\url{http://math.unice.fr/~ahrens}}
+\date{}
+
+\newtheoremstyle{mydefinition}
+ {\topsep} % Platz vor dem Theorem
+ {\topsep} % Platz nach dem Theorem
+ {} % Schrift im Theorem
+ {} % Einrueckung (empty = keine Einrueckung, \parindent = Normale Paragrapheneinrueckung)
+ {} % Schrift in der Kopfzeile des Theorems
+ {} % Punktation nach dem Theoremkopf
+ {10pt} %     Space after thm head (\newline = linebreak)
+ {{\bfseries\thmnumber{#2 }\thmname{#1}}{\thmnote{ (#3)}}:} % Kopfformatierung
+
+\theoremstyle{mydefinition}
+\newtheorem{definition}{D\'efinition}
+\newtheorem{exo}[definition]{Exercice}
+\newtheorem{example}[definition]{Exemple}
+\newtheorem{rem}[definition]{Remarque}
+
+\newtheoremstyle{myplain}
+ {\topsep} % Platz vor dem Theorem
+ {\topsep} % Platz nach dem Theorem
+ {\itshape} % Schrift im Theorem
+ {} % Einrueckung (empty = keine Einrueckung, \parindent = Normale Paragrapheneinrueckung)
+ {} % Schrift in der Kopfzeile des Theorems
+ {} % Punktation nach dem Theoremkopf
+ {10pt} %     Space after thm head (\newline = linebreak)
+ {{\bfseries\thmnumber{#2 }\thmname{#1}}\thmnote{ (#3)}:} % Kopfformatierung
+\theoremstyle{myplain}
+\newtheorem{thm}[definition]{Th\'eor\`eme}
+
+
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+
+\DeclareMathOperator{\Maxmin}{Maxmin}
+\DeclareMathOperator{\Minmax}{Minmax}
+
+\begin{document}
+
+\maketitle
+
+
+\begin{definition}[Jeu \`a somme nulle]
+ Un \emph{jeu \`a somme nulle} est la donn\'ee de
+\begin{itemize}
+ \item un ensemble $X = \{x_1,\ldots,x_n\}$ de \emph{strat\'egies} --- qu'on appelera les strat\'egies du joueur $X$
+ \item un ensemble $Y = \{y_1,\ldots,y_m\}$ de \emph{strat\'egies} --- qu'on appelera les strat\'egies du joueur $Y$
+ \item une fonction $X \times Y \to \R$ qui \`a toute paire de strat\'egies $(x,y)\in X\times Y$ associe le paiement $r\in \R$
+       que le joueur $Y$ payera a $X$.
+\end{itemize}
+\end{definition}
+
+Un tel jeu s'appelle \emph{jeu \`a somme nulle} car la perte d'un joueur \'equivaut toujours au gain de l'autre, c'est--\`a--dire
+la somme des gain des deux joueurs est nulle.
+
+\begin{definition}[Forme normale d'un jeu \`a somme nulle]\label{def:normal_form}
+  Etant donn\'e le jeu $(X,Y,u)$, on repr\'esente les $n$ strat\'egies de $X$ en ligne 
+et les $m$ strat\'egies de $Y$ en colonne, et donc obtient un tableau, par exemple:
+\[
+\begin{array}{l|rrr}
+    & y_1 & y_2 & y_3 \\ \hline
+x_1 &  -2 & +1 & -1 \\ 
+x_2 &   -2 & -4 & +1
+\end{array}
+\]
+qu'on appelle la \emph{forme normale} du jeu $(X,Y,u)$.
+\end{definition}
+
+Vu que les coefficients $u(x,y)$ de la matrice correspondent au gain de $X$ --- et donc \`a la perte de $Y$ --- 
+le joueur $X$ essaie de maximiser $u(x,y)$, pendant que $Y$ essaie de le minimiser.
+Plus pr\'ecis\'ement, pour chaque strat\'egie $x_i$ que le joueur $X$ peut choisir, le joueur $Y$ essaie de choisir la strat\'egie $y_j$ qui
+minimise $\{ u(x_i,y_j) \mid 1 \leq j \leq m \}$.
+
+On raisonne en terme de \emph{risque}: chaque joueur r\'eflechit sur le risque de perte pour chacune des strat\'egies \`a sa
+disposition.
+Pour l'exemple pr\'ec\'edent :
+\[
+\begin{array}{l|rrr | r|r}
+    & y_1 & y_2 & y_3 & \min - & \Maxmin\\ \hline
+x_1 &  -2 & +1 & -1 & -2 & \multirow{2}{*}{-2} \\ 
+x_2 &   -2 & -4 & +1 & -4  \\ \hline
+\max |   & -2 & +1 & +1 \\ \hline
+\Minmax &\multicolumn{3}{c}{-2} 
+\end{array}
+\]
+Joueur $Y$ risque de perdre $-2$ (i.e.\ gagner $2$) en choisissant $y_1$, perdre $+1$ en choisissant $y_2$ (si $X$ choisit $x_1$), et 
+      $+1$ en choisissant $y_3$.
+Joueur $X$ risque de gagner $-2$ (i.e.\ perdre $2$) en choisissant $x_1$ (si $Y$ choisit $y_1$), et perdre $4$ en choisissant $x_2$
+ (si $Y$ choisit $y_2$).
+
+% Pour \emph{minimiser} le risque, $X$ va donc choisir la strategie $x_1$.
+
+\begin{definition}
+ On appelle 
+\[\Maxmin =-2\] 
+le max de la derniere colonne, qui est le Max des minima de chacune des lignes.
+
+De m\^eme, on appelle
+\[ \Minmax = -2 \]
+le min de la derniere ligne, qui est le Min des maxima de chacune des lignes.
+\end{definition}
+
+\begin{definition}[Jeu \`a strat\'egie pure]
+  Si pour un jeu $(X,Y,u)$ on a $\Minmax = \Maxmin$, on dit que le jeu \emph{admet une valeur en strat\'egie pure}.
+
+  Dans ce cas, on appelle $\Minmax$ \emph{la valeur du jeu}.
+\end{definition}
+
+Le jeu de l'\'exemple en haut admet une valeur en strat\'egie pure.
+
+\begin{exo}
+ Modifier l'\'exemple de D\'ef.\ \ref{def:normal_form} tel que le jeu n'admette plus une valeur en strat\'egie pure.
+\end{exo}
+
+\vspace{1em}
+
+But: savoir repondre \`a
+\begin{itemize}
+ \item Qu'est-ce qu'un jeu ?
+ \item Qu'est-ce que la forme normale d'un jeu, et comment l'interpreter ?
+ \item Etant donn\'e un jeu sous forme normale, admet-il une valeur en strat\'egie pure ?
+\end{itemize}
+
+\vspace{1em}
+
+% \includegraphics[width=.3\textwidth, angle=270]{calvin_hobbes_01}
+
+\end{document}

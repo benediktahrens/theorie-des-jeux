@@ -1,0 +1,122 @@
+\documentclass[11pt]{scrartcl}
+%\documentclass[10pt,a4paper]{book}
+\usepackage[utf8 ]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{hyperref}
+\usepackage{epsf}
+\usepackage{amsmath}
+\usepackage{epsfig}
+\usepackage{amssymb}
+\usepackage{epic}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\pagenumbering{arabic}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage{bm}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+
+\title{Th\'eorie des jeux : TD 1}
+\date{}
+
+
+\DeclareMathOperator{\Maxmin}{Maxmin}
+\DeclareMathOperator{\Minmax}{Minmax}
+\DeclareMathOperator{\val}{val}
+
+
+\begin{document}
+\pagestyle{empty}
+
+\textbf{L1 MASS ;   Th\'eorie des jeux : TD 3    ;      Ann\'ee 2011-12, 2nd Semestre}
+%\maketitle
+\medskip
+\medskip
+\medskip
+
+% 
+% \begin{itemize}
+%  \item strategies prudentes + rappel
+%  \item strategies dominantes + rappel
+%  \item points selles
+%  \item donner jeu mixte associ\'e a jeu a 2 strategies (matrice 2 x 2)
+%  \item controle 14 dec 2006
+% \end{itemize}
+
+Soit $(X,Y,u)$ un jeu. On appelle \emph{strat\'egie prudente de $X$} toute strat\'egie de $X$ qui \emph{minimise le risque}, 
+c'est--\`a--dire, toute strat\'egie $x\in X$ tel que
+ \[ \inf_{y\in Y} u(x,y) = \sup_{x\in X} \inf_{y\in Y} u(x,y)  \enspace . \]
+
+De m\^eme, on appelle \emph{strat\'egie prudente de $Y$} toute strat\'egie de $Y$ qui minimise le risque, c'est--\`a--dire,
+ toute strat\'egie $y \in Y$ tel que
+\[ \sup_{x\in X} u(x,y) = \inf_{y\in Y} \sup_{x\in X} u(x,y) \enspace . \]
+
+
+On dit que la strat\'egie $x_1\in X$ \emph{domine} la strat\'egie $x_2 \in X$, si le gain obtenu en jouant $x_1$ est \emph{toujours} --- c'est--\`a--dire
+ pour chaque strat\'egie que $Y$ pourrait jouer ---
+superieur \`a celui qu'on obtient en jouant $x_2$, i.e.\ si pour toute strat\'egie $y\in Y$ de l'oppos\'e, 
+ \[ u(x_1, y) \geq u(x_2,y) \enspace . \]
+Dans ce cas, on dit aussi que $x_2$ \emph{est domin\'ee par} $x_1$.
+
+\begin{center}
+\textbf{Exercice 1 : Strat\'egies dominantes}
+\end{center}
+
+Trouver les strat\'egies dominantes et r\'eduire les formes normales suivantes :
+\begin{equation*}
+\begin{pmatrix}
+-6&-4&1&0\\
+-4&-1&-4&-2\\
+-4&-1&2&1
+\end{pmatrix} \text{ ; }
+\begin{pmatrix}
+-2&0&-2&1&1\\
+3&1&-1&3&2\\
+2&3&0&-2&-4\\
+5&2&-4&0&-1
+\end{pmatrix}\text{ ; }
+\begin{pmatrix}
+0&1&-2&-3&-1\\
+0&1&0&-2&-1\\
+1&-1&1&1&-2\\
+0&0&-2&0&0\\
+-1&-1&-2&-2&-1
+\end{pmatrix}
+\end{equation*}
+Donner les strat\'egies prudentes de chacun des joueurs.
+
+
+\begin{center}
+\textbf{Exercice}
+\end{center}
+
+\begin{equation*}
+\begin{pmatrix}
+2t&2&0\\
+-1&2&t
+\end{pmatrix}
+\end{equation*}
+
+\begin{itemize}
+\item D\'eterminer quand on a une/des strat\'egie(s) dominante(s) pour X et Y et la/lesquelles.
+\item Dessiner le graphe de la fonction $\inf_{y \in Y} \sup_{x \in X} u_X(x,y)$ et celui de 
+la fonction $ \sup_{x \in X} \inf_{y \in Y} u_X(x,y)$ sur le m\^eme dessin.
+\item D\'eterminer les strat\'egies prudentes de X et Y en fonction de t.
+\item Quand le jeu a-t-il une valeur en strat\'egie pure et quelle est-elle ?
+\end{itemize}
+
+\begin{center}
+\textbf{Exercice}
+\end{center}
+
+D\'eterminer le jeu mixte associ\'e \`a cette forme normale :
+\begin{equation*}
+\begin{pmatrix}
+2&-2\\
+-1&2
+\end{pmatrix}
+\end{equation*}
+
+
+\end{document}
